@@ -70,12 +70,9 @@ def main():
         else:
             print("hmm...", file=sys.stderr)
 
-        print("cmd: {}".format(cmd), file=sys.stderr)
-        print("args: {}".format(args), file=sys.stderr)
-
         if is_known(cmd, "file"):
-            print("file command")
-            continue
+            filename = args
+            r2 = r2pwndbg(filename)
         elif is_known(cmd, "exit") or is_known(cmd, "quit"):
             if r2 != None:
                 r2.r2quit()
